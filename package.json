@@ -1,0 +1,22 @@
+{
+  "name": "curso-practico-node",
+  "version": "1.0.0",
+  "description": "Ejercicio de curso Platzi, chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DannBlackfish/curso-practico-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DannBlackfish/curso-practico-nodejs/issues"
+  },
+  "homepage": "https://github.com/DannBlackfish/curso-practico-nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
