@@ -5,7 +5,7 @@ const error = require('../utils/error');
 const secret = config.jwt.secret;
 
 function sign(data) {
-   return jwt.sign(data, secret )
+    return jwt.sign(data, secret);
 }
 
 function verify(token) {
@@ -18,23 +18,22 @@ const check = {
         console.log(decoded);
 
         if (decoded.id !== owner) {
-            throw error('No puedes hacer esto', 401)
+            throw error('No puedes hacer esto', 401);
         }
     },
 }
 
 function getToken(auth) {
     if (!auth) {
-        throw new Error('No viene token');
+        throw error('No viene token', 401);
     }
 
     if (auth.indexOf('Bearer ') === -1) {
-        throw new Error('Formato invalido')
+        throw error('Formato invalido', 401);
     }
 
     let token = auth.replace('Bearer ', '');
-
-    return token
+    return token;
 }
 
 function decodeHeader(req) {
@@ -50,4 +49,4 @@ function decodeHeader(req) {
 module.exports = {
     sign,
     check,
-}
+};
