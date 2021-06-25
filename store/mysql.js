@@ -81,13 +81,14 @@ function upsert(table, data) {
 
 function query(table, query, join) {
     let joinQuery = '';
-    if(join) {
+    if (join) {
         const key = Object.keys(join)[0];
         const val = join[key];
-        joinQuery = `JOIN ${key} ON ${table}.${val} = ${key}.id`
+        joinQuery = `JOIN ${key} ON ${table}.${val} = ${key}.id`;
     }
+
     return new Promise((resolve, reject) => {
-        connection.query(`SELECT * FROM ${table} ${joinQuery} WHERE ?`, query, (err, res) => {
+        connection.query(`SELECT * FROM ${table} ${joinQuery} WHERE ${table}.?`, query, (err, res) => {
             if (err) return reject(err);
             resolve(res[0] || null);
         })
